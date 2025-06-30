@@ -1,4 +1,4 @@
-package org.shelajev.mcp_lichess;
+package org.shelajev.mcpchess;
 
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
@@ -13,9 +13,9 @@ public class McpLichessApplication {
 		SpringApplication.run(McpLichessApplication.class, args);
 	}
 	@Bean
-	ToolCallbackProvider serviceToolCallbackProvider(LichessAPIClient lichessAPIClient) {
+	ToolCallbackProvider serviceToolCallbackProvider(LichessAPIClient lichessAPIClient, Stockfish stockfish, Maia maia) {
 		return MethodToolCallbackProvider.builder()
-				.toolObjects(lichessAPIClient)
+				.toolObjects(lichessAPIClient, stockfish, maia)
 				.build();
 	}
 }

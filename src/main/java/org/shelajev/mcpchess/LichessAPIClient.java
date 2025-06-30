@@ -1,4 +1,4 @@
-package org.shelajev.mcp_lichess;
+package org.shelajev.mcpchess;
 
 
 import chariot.Client;
@@ -13,9 +13,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class LichessAPIClient {
@@ -58,10 +59,9 @@ public class LichessAPIClient {
                     .since(Instant.now().minus(Duration.ofDays(days)).toEpochMilli())
                     .rated()
                     .lastFen(true)
-                    .finished()
-                    .lastFen(true);
+                    .finished();
         });
-        var returnMe = games.stream().toList();
+        var returnMe = games.stream().collect(toList());
         Collections.shuffle(returnMe);
         if(returnMe.isEmpty()) {
             return null;

@@ -1,4 +1,4 @@
-package org.shelajev.mcp_lichess;
+package org.shelajev.mcpchess;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
