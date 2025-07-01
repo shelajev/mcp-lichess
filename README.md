@@ -16,7 +16,7 @@ This application provides a server that exposes Lichess API functionality and ch
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/mcp-lichess.git
+   git clone https://github.com/shelajev/mcp-lichess.git
    cd mcp-lichess
    ```
 
@@ -27,8 +27,13 @@ This application provides a server that exposes Lichess API functionality and ch
 
 3. Docker build (recommended for chess engines support):
    ```bash
-   docker build -t mcp-lichess .
-   docker run -p 8080:8080 -e LICHESS_API_TOKEN=your_token_here mcp-lichess
+   docker build -t olegselajev241/mcp-chess:latest .
+   docker run -p 8080:8080 -e LICHESS_API_TOKEN=your_token_here olegselajev241/mcp-chess:latest
+   ```
+   
+4. You can of course run it without building the image first and pull the pre-built version: 
+     ```bash
+   docker run -p 8080:8080 -e LICHESS_API_TOKEN=your_token_here olegselajev241/mcp-chess:latest
    ```
 
 ## Configuration
